@@ -125,6 +125,13 @@ class Emoji_support_mcp {
 
 	public function success()
 	{
+		$sql = $this->prepareSQLStatements();
+
+		if ( ! empty($sql))
+		{
+			ee()->functions->redirect(ee('CP/URL')->make('addons/settings/emoji_support'));
+		}
+
 		return ee('View')->make('emoji_support:alert')->render();
 	}
 
