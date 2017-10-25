@@ -97,7 +97,7 @@ class Emoji_support_mcp {
 		}
 
 		$sql = $this->prepareSQLStatements();
-		$end = count($sql) - 1;
+		$end = count($sql);
 
 		$stop = (5 <= $end) ? 5 : $end;
 
