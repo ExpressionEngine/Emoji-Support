@@ -100,9 +100,9 @@ class Emoji_support_mcp {
 
 		$stop = $offset + 5;
 
-		if ($stop > count($sql))
+		if ($stop > count($sql) - 1)
 		{
-			$stop = count($sql);
+			$stop = count($sql) - 1;
 		}
 
 		for ($offset; $offset < $stop; $offset++)
