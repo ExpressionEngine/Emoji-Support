@@ -97,20 +97,16 @@ class Emoji_support_mcp {
 		}
 
 		$sql = $this->prepareSQLStatements();
+		$end = count($sql) - 1;
 
-		$stop = $offset + 5;
+		$stop = (5 <= $end) ? 5 : $end;
 
-		if ($stop > count($sql) - 1)
+		for ($i = 0; $i < $stop; $i++)
 		{
-			$stop = count($sql) - 1;
+			ee('db')->query($sql[$i]);
 		}
 
-		for ($offset; $offset < $stop; $offset++)
-		{
-			ee('db')->query($sql[$offset]);
-		}
-
-		if ($offset == (count($sql) - 1))
+		if ($i >= $end)
 		{
 			ee('CP/Alert')->makeInline('convert_success')
 				->asSuccess()
@@ -123,7 +119,7 @@ class Emoji_support_mcp {
 
 		ee()->output->send_ajax_response([
 			'status' => 'in_progress',
-			'offset' => $offset
+			'offset' => $offset + $i
 		]);
 	}
 
