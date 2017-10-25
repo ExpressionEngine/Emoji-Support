@@ -100,6 +100,11 @@ class Emoji_support_mcp {
 
 		$stop = $offset + 5;
 
+		if ($stop > count($sql))
+		{
+			$stop = count($sql);
+		}
+
 		for ($offset; $offset < $stop; $offset++)
 		{
 			ee('db')->query($sql[$offset]);
