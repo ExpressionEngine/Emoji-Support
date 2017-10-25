@@ -166,11 +166,27 @@ class Emoji_support_mcp {
 
 	protected function getAlterDatabaseStatement()
 	{
+		$sql = "SELECT default_character_set_name FROM information_schema.SCHEMATA  WHERE schema_name = '" . ee()->db->database . "';";
+		$status = ee()->db->query($sql);
+
+		if ($status->row('default_character_set_name') == 'utf8mb4')
+		{
+			return;
+		}
+
 		return "ALTER DATABASE `" . ee()->db->database . "` CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;";
 	}
 
 	protected function getNewUrlTitleIndexStatements()
 	{
+		$sql = "SHOW INDEX FROM exp_channel_titles WHERE Key_name = 'url_title';";
+		$status = ee()->db->query($sql);
+
+		if ($status->row('Sub_part') == '191')
+		{
+			return [];
+		}
+
 		return [
 			"DROP INDEX `url_title` ON `exp_channel_titles`;",
 			"CREATE INDEX `url_title` ON `exp_channel_titles` (`url_title`(191));"
@@ -181,7 +197,12 @@ class Emoji_support_mcp {
 	{
 		$sql = [];
 
-		$sql[] = $this->getAlterDatabaseStatement();
+		$alter_db = $this->getAlterDatabaseStatement();
+		if ($alter_db)
+		{
+			$sql[] = $alter_db;
+		}
+
 		$sql = array_merge($sql, $this->getNewUrlTitleIndexStatements());
 
 		foreach ($this->getAffectedTables() as $table)
