@@ -13,25 +13,59 @@
  */
 class Emoji_support_mcp {
 
-	protected $msyql_server_version;
-	protected $utf8mb4_supported;
+	public function isUtf8mb4Supported()
+	{
+		$alert = ee('CP/Alert')->makeInline('error')
+				->asIssue()
+				->cannotClose()
+				->withTitle(lang('unsupported'));
 
-	public function __construct() {
-		$this->msyql_server_version = ee('Database')->getConnection()->getNative()->getAttribute(PDO::ATTR_SERVER_VERSION);
-		$this->utf8mb4_supported = version_compare($this->msyql_server_version, '5.5.3', '>=');
+		$msyql_server_version = ee('Database')->getConnection()->getNative()->getAttribute(PDO::ATTR_SERVER_VERSION);
+
+		$server_is_compatible = version_compare($msyql_server_version, '5.5.3', '>=');
+
+		if ( ! $server_is_compatible)
+		{
+			$alert->addToBody(sprintf(lang('unsupported_server'), $msyql_server_version));
+		}
+
+		$client_info = ee('Database')->getConnection()->getNative()->getAttribute(PDO::ATTR_CLIENT_VERSION);
+
+		if (strpos($client_info, 'mysqlnd') === 0)
+		{
+			$msyql_client_version = preg_replace('/^mysqlnd ([\d.]+).*/', '$1', $client_info);
+			$client_is_compatible = version_compare($msyql_client_version, '5.0.9', '>=');
+
+			if ( ! $client_is_compatible)
+			{
+				$alert->addToBody(sprintf(lang('unsupported_client'), $msyql_client_version, '5.0.9'));
+			}
+		}
+		else
+		{
+			$msyql_client_version = $client_info;
+			$client_is_compatible = version_compare($msyql_client_version, '5.5.3', '>=');
+
+			if ( ! $client_is_compatible)
+			{
+				$alert->addToBody(sprintf(lang('unsupported_client'), $msyql_client_version, '5.5.3'));
+			}
+		}
+
+		$utf8mb4_supported = $server_is_compatible && $client_is_compatible;
+
+		if ( ! $utf8mb4_supported)
+		{
+			$alert->now();
+		}
+
+		return $utf8mb4_supported;
 	}
 
 	public function index()
 	{
-		if ( ! $this->utf8mb4_supported)
+		if ( ! $this->isUtf8mb4Supported())
 		{
-			ee('CP/Alert')->makeInline('error')
-				->asIssue()
-				->cannotClose()
-				->withTitle(lang('unsupported'))
-				->addToBody(sprintf(lang('unsupported_desc'), $this->msyql_server_version))
-				->now();
-
 			return ee('View')->make('emoji_support:alert')->render();
 		}
 
@@ -48,7 +82,7 @@ class Emoji_support_mcp {
 				->asIssue()
 				->cannotClose()
 				->withTitle(lang('incompatible'))
-				->addToBody(sprintf(lang('incompatible_desc'), $this->msyql_server_version))
+				->addToBody(lang('incompatible_desc'))
 				->addToBody($tables)
 				->now();
 

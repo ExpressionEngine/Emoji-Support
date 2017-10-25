@@ -6,7 +6,9 @@ $lang = array(
 
 'unsupported' => 'Unsupported MySQL Version',
 
-'unsupported_desc' => 'Your MySQL server version does not meet the minimum requirements. You have %s and the minimum requirement is 5.5.3.',
+'unsupported_server' => 'Your MySQL server version does not meet the minimum requirements. You have %s and the minimum requirement is 5.5.3.',
+
+'unsupported_client' => 'Your MySQL client version does not meet the minimum requirements. You have %s and the minimum requirement is %s.',
 
 'backup' => 'Backup Your Database',
 
