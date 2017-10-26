@@ -230,6 +230,23 @@ class Emoji_support_mcp {
 		];
 	}
 
+	protected function getNewCatGroupIndexStatements()
+	{
+		$sql = "SHOW INDEX FROM exp_channel_titles WHERE Key_name = 'cat_group';";
+		$status = ee()->db->query($sql);
+
+		if ($status->row('Sub_part') == '191')
+		{
+			return [];
+		}
+
+		return [
+			"DROP INDEX `cat_group` ON `exp_channels`;",
+			"CREATE INDEX `cat_group` ON `exp_channels` (`cat_group`(191));"
+		];
+	}
+
+
 	protected function prepareSQLStatements()
 	{
 		$sql = [];
@@ -241,6 +258,8 @@ class Emoji_support_mcp {
 		}
 
 		$sql = array_merge($sql, $this->getNewUrlTitleIndexStatements());
+
+		$sql = array_merge($sql, $this->getNewCatGroupIndexStatements());
 
 		foreach ($this->getAffectedTables() as $table)
 		{
