@@ -13,7 +13,7 @@
  */
 class Emoji_support_mcp {
 
-	public function isUtf8mb4Supported()
+	protected function isUtf8mb4Supported()
 	{
 		$alert = ee('CP/Alert')->makeInline('error')
 				->asIssue()
