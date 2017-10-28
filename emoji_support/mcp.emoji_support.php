@@ -242,7 +242,7 @@ class Emoji_support_mcp {
 
 	protected function getNewCatGroupIndexStatements()
 	{
-		$sql = "SHOW INDEX FROM exp_channel_titles WHERE Key_name = 'cat_group';";
+		$sql = "SHOW INDEX FROM exp_channels WHERE Key_name = 'cat_group';";
 		$status = ee()->db->query($sql);
 
 		if ($status->row('Sub_part') == '191')
