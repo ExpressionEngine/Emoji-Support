@@ -1,7 +1,7 @@
 <div class="box">
 	<div class="tbl-ctrls">
 		<?=form_open(ee('CP/URL')->make('addons/settings/emoji_support/convert'))?>
-			<h1><?=lang('emoji_support_moudle_name')?></h1>
+			<h1><?=lang('emoji_support_module_name')?></h1>
 
 			<?=ee('CP/Alert')->getAllInlines()?>
 
