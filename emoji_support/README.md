@@ -1,6 +1,6 @@
 # Emoji Support
 
-This add-on make the necessary changes to an existing ExpressionEngine install's database so that it will support emoji! 🎉
+This add-on makes the necessary changes to an existing ExpressionEngine install's database so that it will support emoji! 🎉
 
 ## Requirements
 
