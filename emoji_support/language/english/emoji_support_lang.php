@@ -16,7 +16,7 @@ $lang = array(
 
 'incompatible' => 'Incompatible Addons',
 
-'incompatible_desc' => 'Some of your installed Add-ons are not ready for emoji support. You will need to contact the develper and get an update. Below are the list of database tables affected:',
+'incompatible_desc' => 'Some of your installed Add-ons are not ready for emoji support. You will need to contact the developer and get an update. Below are the list of database tables affected:',
 
 'convert' => 'In order to support emojis the character set and collation of your database and its tables must be updated. The following SQL statements will be executed against your database if you submit the form:',
 
