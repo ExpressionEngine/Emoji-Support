@@ -88,11 +88,20 @@ class Emoji_support_mcp {
 			return ee('View')->make('emoji_support:alert')->render();
 		}
 
+		if (version_compare(APP_VER, '4.0.0-dp.1', '>='))
+		{
+			$url = ee('CP/URL', 'utilities/db-backup');
+		}
+		else
+		{
+			$url = DOC_URL.'operations/database_backup.html';
+		}
+
 		ee('CP/Alert')->makeInline('backup')
 			->asWarning()
 			->cannotClose()
 			->withTitle(lang('backup'))
-			->addToBody(sprintf(lang('backup_desc'), ee('CP/URL', 'utilities/db-backup')))
+			->addToBody(sprintf(lang('backup_desc'), $url))
 			->now();
 
 		$sql = $this->prepareSQLStatements();
