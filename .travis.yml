@@ -11,7 +11,7 @@ install:
   - composer install
 
 script:
-  - emoji_support/vendor/bin/parallel-lint --exclude html_attribute_content/vendor .
+  - emoji_support/vendor/bin/parallel-lint --exclude emoji_support/vendor .
 
 before_deploy:
   - rm -rf emoji_support/vendor
