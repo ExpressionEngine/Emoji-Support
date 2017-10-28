@@ -75,7 +75,7 @@ class Emoji_support_mcp {
 			$tables = [];
 			foreach ($indicies as $row)
 			{
-				$tables[] = $row['TABLE_NAME'];
+				$tables[] = $row['TABLE_NAME'].' '.sprintf(lang('key_too_large'), $row['COLUMN_NAME']);
 			}
 
 			ee('CP/Alert')->makeInline('error')
@@ -176,7 +176,17 @@ class Emoji_support_mcp {
 		$indicies = ee()->db->query("SELECT `TABLE_NAME`, `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = '" . ee()->db->database . "' AND `DATA_TYPE` REGEXP 'char|text' AND `CHARACTER_MAXIMUM_LENGTH` > 191 AND `COLUMN_KEY` <> '' AND `COLUMN_NAME` NOT IN ('url_title', 'cat_group');");
 		if ($indicies->num_rows())
 		{
-			return $indicies->result_array();
+			// check to see if the associated index is also over 191 characters
+			foreach ($indicies->result() as $row)
+			{
+				$indicies_too_large = ee()->db->query("SHOW INDEX FROM `{$row->TABLE_NAME}` WHERE Key_name = '{$row->COLUMN_NAME}' AND (Sub_part > 191 OR Sub_part IS NULL)");
+
+				if ($indicies_too_large->num_rows())
+				{
+					$return[] = ['TABLE_NAME' => $row->TABLE_NAME, 'COLUMN_NAME' => $row->COLUMN_NAME];
+				}
+			}
+
 		}
 
 		return $return;
