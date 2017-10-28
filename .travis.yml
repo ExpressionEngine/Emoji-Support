@@ -5,25 +5,26 @@ php:
   - 5.5
   - 5.6
   - 7.0
+  - 7.1
 
 install:
   - composer install
 
 script:
-  - html_attribute_content/vendor/bin/parallel-lint --exclude html_attribute_content/vendor .
+  - emoji_support/vendor/bin/parallel-lint --exclude html_attribute_content/vendor .
 
 before_deploy:
-  - rm -rf html_attribute_content/vendor
-  - zip -r 'HTML Attribute Content' html_attribute_content
+  - rm -rf emoji_support/vendor
+  - zip -r 'Emoji Support' emoji_support
 
 deploy:
   provider: releases
   api_key:
-    secure: fuLGULBdOuuFKh6kp+bfsxKCZU/MpWcW/dOdkbHehJ48XlSH+wIXp7bvwjsTiM66EFE4vKNkELOCunZ6UhnjhuCqq4EXlBsQ2U0k7SyB/MmF9QgdH+7fU7JD3FOmHc4cqeR6ETklbA2l+Un4Kvh0AkAL5j084P7xgwnOlXUi538=
-  file: "HTML Attribute Content.zip"
+    secure: eIQAIsT+mto9iI7QMM8IhI7jElBO2edhlBPvaON0Q4xOEJNM7S6yHlze2yF5qnsFBTXX0H5NRXkNP5+4L6te1B/o8WHM/4mp27kcXsQ99p3vHE3QetaUcDdl+hOd1BFgYb1+B+aZ9F195aR0NgKBL5KCOHyJdjZSMCfmMCkv87wkPNWdYC8dg6e7R6+6i+v3zqpfdAiPnj+4+3TTTmOcObOHD64K+aRdwjvdCIDK+HQVMIUB2jWmKFTmglPMOUEQar4wEQqlXXRaunhOzWeBK+dtElOFmw87jb5Ffm1SEihYACICdUcxehryA19TGx/qpiUhEaRL3PMq7qsP/kYnlBSgmhNoTHRujbxlj2si1B5ciFO3zG9mSZZcHkbOlT9PLdZahhFjR80evDlrz27/582cr1FciIqUkF6vzxINcXMnolRMu6MBuq9vQ0lmUdZYxm9MsuRqobxHuejj89ClAmwziHCQsr3zW5WTj4boNNem1ReBKlEDtu+Yk1ZIQroHB8s/9dmw4vjMe5ZOTDbayLVf80JDLhNgmnqbApuxfI/5JjJQ8inXsJgrmbk9GPj9pvqx6A95PCtd6LI2GaOBushdAGue/dItzVhQXp0AOekZasrYx3lxtpPliCv6CjF7EsiADSWeLb84+bPY/xFPeGrmNXr1To97Lw1eRkb0SqQ=
+  file: "Emoji Support.zip"
   skip_cleanup: true
   on:
-    php: 7.0
+    php: 7.1
     tags: true
     condition: $TRAVIS_PULL_REQUEST = false
-    repo: EllisLab/HTML-Attribute-Content
+    repo: EllisLab/Emoji-Support
