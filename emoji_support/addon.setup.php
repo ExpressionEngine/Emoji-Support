@@ -5,7 +5,7 @@ return array(
 	'author_url'     => 'https://ellislab.com/',
 	'name'           => 'Emoji Support',
 	'description'    => '',
-	'version'        => '1.0.0',
+	'version'        => '1.0.2',
 	'namespace'      => 'EllisLab\Addons\EmojiSupport',
 	'settings_exist' => TRUE,
 );

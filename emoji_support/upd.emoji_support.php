@@ -16,7 +16,7 @@ class Emoji_support_upd {
 	{
 		ee('Model')->make('Module', [
 			'module_name' => 'Emoji_support',
-			'module_version' => '1.0.0',
+			'module_version' => '1.0.2',
 			'has_cp_backend' => TRUE,
 			'has_publish_fields' => FALSE
 		])->save();
@@ -25,7 +25,7 @@ class Emoji_support_upd {
 
 	public function uninstall()
 	{
-		ee('Model')->get('Moudle')
+		ee('Model')->get('Module')
 			->filter('module_name', 'Emoji_support')
 			->delete();
 		return TRUE;

@@ -36,6 +36,10 @@ It's always good idea to check with the developer though, as it is possible that
 
 ## Change Log
 
+### 1.0.2
+
+- Fixed a PHP error when uninstalling this add-on.
+
 ### 1.0.1
 
 - Fixed the link for database backups based on which version of ExpressionEngine is installed
