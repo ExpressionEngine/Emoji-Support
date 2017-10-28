@@ -1,12 +1,11 @@
 <?php
 /**
- * ExpressionEngine (https://expressionengine.com)
+ * Emoji Support module for ExpressionEngine (https://expressionengine.com)
  *
- * @link      https://expressionengine.com/
- * @copyright Copyright (c) 2003-2017, EllisLab, Inc. (https://ellislab.com)
- * @license   https://expressionengine.com/license
+ * @link      https://github.com/EllisLab/Emoji-Support
+ * @copyright Copyright (c) 2017, EllisLab, Inc. (https://ellislab.com)
+ * @license   https://opensource.org/licenses/MIT MIT
  */
-
 
 /**
  * Emoji Support
@@ -15,5 +14,6 @@ class Emoji_support {
 
 
 }
+// END CLASS
 
 // EOF
