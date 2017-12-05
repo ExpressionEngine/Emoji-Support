@@ -234,18 +234,27 @@ class Emoji_support_mcp {
 
 	protected function getNewUrlTitleIndexStatements()
 	{
+		$return = [];
+
 		$sql = "SHOW INDEX FROM exp_channel_titles WHERE Key_name = 'url_title';";
 		$status = ee()->db->query($sql);
 
-		if ($status->row('Sub_part') == '191')
+		if ($status->row('Sub_part') > '191')
 		{
-			return [];
+			$return[] = "DROP INDEX `url_title` ON `exp_channel_titles`;";
+			$return[] = "CREATE INDEX `url_title` ON `exp_channel_titles` (`url_title`(191));";
 		}
 
-		return [
-			"DROP INDEX `url_title` ON `exp_channel_titles`;",
-			"CREATE INDEX `url_title` ON `exp_channel_titles` (`url_title`(191));"
-		];
+		$sql = "SHOW INDEX FROM exp_channel_entries_autosave WHERE Key_name = 'url_title';";
+		$status = ee()->db->query($sql);
+
+		if ($status->row('Sub_part') > '191')
+		{
+			$return[] = "DROP INDEX `url_title` ON `exp_channel_entries_autosave`;";
+			$return[] = "CREATE INDEX `url_title` ON `exp_channel_entries_autosave` (`url_title`(191));";
+		}
+
+		return $return;
 	}
 
 	protected function getNewCatGroupIndexStatements()
