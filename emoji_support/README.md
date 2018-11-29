@@ -9,7 +9,7 @@ This add-on makes the necessary changes to an existing ExpressionEngine install'
 
 ## Installation
 
-1. Download the [latest release](https://github.com/EllisLab/Emoji-Support/releases/latest).
+1. Download the [latest release](https://github.com/ExpressionEngine/Emoji-Support/releases/latest).
 2. Copy the `emoji_support` folder to your `system/user/addons` folder (you can ignore the rest of this repository's files).
 3. In your ExpressionEngine control panel, visit the Add-On Manager and click Install next to "Emoji Support".
 
@@ -36,6 +36,10 @@ It's always good idea to check with the developer though, as it is possible that
 
 ## Change Log
 
+### 2.0.0
+
+- Relicensing under the Apache 2.0 Software License
+
 ### 1.0.2
 
 - Fixed a PHP error when uninstalling this add-on.
@@ -58,16 +62,10 @@ You may be wondering what the rest of the files in this package are for. They ar
 - **.composer.json:** A [Composer project setup file](https://getcomposer.org/doc/01-basic-usage.md) that manages development dependencies.
 - **.composer.lock:** A [list of dependency versions](https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file) that Composer has locked to this project.
 
-## License
+## Copyright / License Notice
 
-Copyright (c) 2017 EllisLab, Inc.
+This project is copyright (c) 2018 EllisLab, Inc ([https://ellislab.com](https://ellislab.com)) and is licensed under Apache License, Version 2.0.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Complete license terms and copyright information can be found in [LICENSE.txt](LICENSE.txt) in the root of this repository.
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-### Exclusions
-
-Except as contained in this notice, the name of EllisLab, Inc. shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from EllisLab, Inc.
+"ExpressionEngine" is a registered trademark of EllisLab, Inc. in the United States and around the world. Refer to EllisLab's [Trademark Use Policy](https://ellislab.com/trademark-use-policy) for access to logos and acceptable use.

@@ -1,11 +1,10 @@
 language: php
 
 php:
-  - 5.4
-  - 5.5
   - 5.6
   - 7.0
   - 7.1
+  - 7.2
 
 install:
   - composer install
@@ -20,11 +19,11 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: eIQAIsT+mto9iI7QMM8IhI7jElBO2edhlBPvaON0Q4xOEJNM7S6yHlze2yF5qnsFBTXX0H5NRXkNP5+4L6te1B/o8WHM/4mp27kcXsQ99p3vHE3QetaUcDdl+hOd1BFgYb1+B+aZ9F195aR0NgKBL5KCOHyJdjZSMCfmMCkv87wkPNWdYC8dg6e7R6+6i+v3zqpfdAiPnj+4+3TTTmOcObOHD64K+aRdwjvdCIDK+HQVMIUB2jWmKFTmglPMOUEQar4wEQqlXXRaunhOzWeBK+dtElOFmw87jb5Ffm1SEihYACICdUcxehryA19TGx/qpiUhEaRL3PMq7qsP/kYnlBSgmhNoTHRujbxlj2si1B5ciFO3zG9mSZZcHkbOlT9PLdZahhFjR80evDlrz27/582cr1FciIqUkF6vzxINcXMnolRMu6MBuq9vQ0lmUdZYxm9MsuRqobxHuejj89ClAmwziHCQsr3zW5WTj4boNNem1ReBKlEDtu+Yk1ZIQroHB8s/9dmw4vjMe5ZOTDbayLVf80JDLhNgmnqbApuxfI/5JjJQ8inXsJgrmbk9GPj9pvqx6A95PCtd6LI2GaOBushdAGue/dItzVhQXp0AOekZasrYx3lxtpPliCv6CjF7EsiADSWeLb84+bPY/xFPeGrmNXr1To97Lw1eRkb0SqQ=
+    secure: uGFn7OGyjzc5DMT49WoSv4jflCHXUmPGb+CpZXewONo3jtfnt75bNfEpmfHdCF3+DWoI7AfbUefNDOrRwCdezwnAZKhSmzphN9+ymOUAlJwu/bvFuKvOjFrPEwKFLGWNaMQ0J/ez6+8dP7/QOoq01ejRbiCg9UcU2Vlu/4rmeero85t7EnAoKo1NRHRnrn9c5KmBN0Cp4V/fRZlbxc0Q4mqbRrzEo4LThVL0df+iGZb+IsLNoMYuQZjVAiA0ra8wD/wT+XHwkAtNDt29ImB3YfcNTA9xWi2OmVZ17Ak0DLBhdpsSUoshxXbYBNuXec7PUV6zvx5pce0OQntmzFnq+THXll5iUq2HqikkzGpxUOaa0//F62E9jRCFTe3+vXFPkDpWk2mrmod5cG3JXTjx3eBguV1r+Xsn5zfze7xdRPCAZVsztYf2UH991EArsUP2zgxj0dhcGZhFaS+TMfDUXfEkX7arlqySbNbj4OtQAUJGHNlz/ms9le7Et13+9KWuvXzfR0u1LIMetf1IlLTy2uG+XCuuZKn1OKsynDw4CKgLnItEQ3wyfcpHUhluuNGM7pPljTgWFvEOK9pcCNlWtlMqma3Sqyvv5XISBiWbl3qwvzQDKGmNpnCp7D89OHy1R789aD1UgLyxCWmr+8jPGVPvD0dN9Gp0uxHvzdwXm4w=
   file: "Emoji Support.zip"
   skip_cleanup: true
   on:
     php: 7.1
     tags: true
     condition: $TRAVIS_PULL_REQUEST = false
-    repo: EllisLab/Emoji-Support
+    repo: ExpressionEngine/Emoji-Support
