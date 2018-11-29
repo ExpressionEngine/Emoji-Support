@@ -36,6 +36,10 @@ It's always good idea to check with the developer though, as it is possible that
 
 ## Change Log
 
+### 2.0.1
+
+- Fixing Travis CI auto-releases.
+
 ### 2.0.0
 
 - Relicensing under the Apache 2.0 Software License
