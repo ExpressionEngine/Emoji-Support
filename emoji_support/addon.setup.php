@@ -1,11 +1,11 @@
 <?php
 
 return array(
-	'author'         => 'EllisLab',
-	'author_url'     => 'https://ellislab.com/',
+	'author'         => 'Packet Tide',
+	'author_url'     => 'https://packettide.com/',
 	'name'           => 'Emoji Support',
 	'description'    => '',
-	'version'        => '1.0.2',
-	'namespace'      => 'EllisLab\Addons\EmojiSupport',
+	'version'        => '2.1.0',
+	'namespace'      => 'ExpressionEngine\Addons\EmojiSupport',
 	'settings_exist' => TRUE,
 );

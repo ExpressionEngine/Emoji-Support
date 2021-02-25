@@ -36,6 +36,10 @@ It's always good idea to check with the developer though, as it is possible that
 
 ## Change Log
 
+### 2.1.0
+
+- Added EE6 support
+
 ### 2.0.1
 
 - Fixing Travis CI auto-releases.
@@ -68,8 +72,8 @@ You may be wondering what the rest of the files in this package are for. They ar
 
 ## Copyright / License Notice
 
-This project is copyright (c) 2018 EllisLab, Inc ([https://ellislab.com](https://ellislab.com)) and is licensed under Apache License, Version 2.0.
+This project is copyright (c) 2021 Packet Tide, LLC ([https://packettide.com](https://packettide.com)) and is licensed under Apache License, Version 2.0.
 
 Complete license terms and copyright information can be found in [LICENSE.txt](LICENSE.txt) in the root of this repository.
 
-"ExpressionEngine" is a registered trademark of EllisLab, Inc. in the United States and around the world. Refer to EllisLab's [Trademark Use Policy](https://ellislab.com/trademark-use-policy) for access to logos and acceptable use.
+"ExpressionEngine" is a registered trademark of Packet Tide, LLC in the United States and around the world. Refer to ExpressionEngine's [Trademark Use Policy](https://expressionengine.com/about/trademark-use-policy) for access to logos and acceptable use.

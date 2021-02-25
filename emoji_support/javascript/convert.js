@@ -1,6 +1,6 @@
 EE.cp.emoji_support = {
 
-	buttons: $('input.btn:visible'),
+	buttons: $('[name=convert]'),
 
 	init: function() {
 		EE.cp.emoji_support._init();
