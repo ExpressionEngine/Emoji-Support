@@ -36,6 +36,10 @@ It's always good idea to check with the developer though, as it is possible that
 
 ## Change Log
 
+### 2.1.1
+
+- Skip exp_pro_search_index table.
+
 ### 2.1.0
 
 - Added EE6 support

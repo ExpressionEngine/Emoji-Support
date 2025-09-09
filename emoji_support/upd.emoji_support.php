@@ -16,7 +16,7 @@ class Emoji_support_upd {
 	{
 		ee('Model')->make('Module', [
 			'module_name' => 'Emoji_support',
-			'module_version' => '1.0.2',
+			'module_version' => '1.1.1',
 			'has_cp_backend' => TRUE,
 			'has_publish_fields' => FALSE
 		])->save();

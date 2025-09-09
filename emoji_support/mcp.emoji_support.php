@@ -181,7 +181,7 @@ class Emoji_support_mcp {
 	{
 		$return = [];
 
-		$indicies = ee()->db->query("SELECT `TABLE_NAME`, `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = '" . ee()->db->database . "' AND `DATA_TYPE` REGEXP 'char|text' AND `CHARACTER_MAXIMUM_LENGTH` > 191 AND `COLUMN_KEY` <> '' AND `COLUMN_NAME` NOT IN ('url_title', 'cat_group');");
+		$indicies = ee()->db->query("SELECT `TABLE_NAME`, `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = '" . ee()->db->database . "' AND `DATA_TYPE` REGEXP 'char|text' AND `CHARACTER_MAXIMUM_LENGTH` > 191 AND `COLUMN_KEY` <> '' AND TABLE_NAME != 'exp_pro_search_indexes' AND `COLUMN_NAME` NOT IN ('url_title', 'cat_group');");
 		if ($indicies->num_rows())
 		{
 			// check to see if the associated index is also over 191 characters
